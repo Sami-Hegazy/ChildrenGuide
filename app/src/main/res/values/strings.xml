@@ -12,5 +12,7 @@
 
     <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
     <string name="category_family">Family Members</string>
-    <string name="learn_your_child">Learn your child</string>
+    <string name="teach_your_child">Teach your child</string>
+    <string name="play_button">play Button</string>
+    <string name="todo">TODO</string>
 </resources>

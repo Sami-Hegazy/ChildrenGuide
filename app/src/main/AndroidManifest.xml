@@ -4,11 +4,35 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launch"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launch"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChildrenGuide">
+        <activity
+            android:name=".ColorsActivity"
+            android:label="@string/category_colors"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"/>
+        <activity
+            android:name=".FamilyActivity"
+            android:label="@string/category_family"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"/>
+        <activity
+            android:name=".PhrasesActivity"
+            android:label="@string/category_phrases"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"/>
+        <activity
+            android:name=".NumbersActivity"
+            android:label="@string/category_numbers" />
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
