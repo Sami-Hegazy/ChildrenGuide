@@ -1,80 +1,49 @@
 package com.example.childrenGuide;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import android.content.Context;
+import android.os.Bundle;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
+public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //____________________________________get Card Number Id____________________________________
-        CardView cardNumbers = findViewById(R.id.openNumbersList);
-        cardNumbers.setOnClickListener(this);
-        //____________________________________get Card Colors Id____________________________________
-        CardView cardColor = findViewById(R.id.openColorsList);
-        cardColor.setOnClickListener(this);
-        //____________________________________get Card Phrases Id___________________________________
-        CardView cardPhrases = findViewById(R.id.openPhrasesList);
-        cardPhrases.setOnClickListener(this);
-        //____________________________________get Card Family Id____________________________________
-        CardView cardFamily = findViewById(R.id.openFamilyList);
-        cardFamily.setOnClickListener(this);
-        //__________________________________________________________________________________________
+
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager2 viewPager = findViewById(R.id.viewpager);
+
+        // Create an adapter that knows which fragment should be shown on each page
+        CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager() , getLifecycle(),this);
+
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
+
+        // Find the tab layout that shows the tabs
+        TabLayout tabLayout = findViewById(R.id.tabs);
+
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText(getPageTitle(this,position))
+        ).attach();
+
     }
 
-    @Override
-    protected void onResume() {
-        Toast.makeText(this, "OnResume", Toast.LENGTH_SHORT).show();
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show();
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show();
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        Toast.makeText(this, "On Destroy", Toast.LENGTH_SHORT).show();
-        super.onDestroy();
-    }
-
-    @Override
-    protected void onRestart() {
-        Toast.makeText(this, "ORestart", Toast.LENGTH_SHORT).show();
-        super.onRestart();
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.openNumbersList){
-            Intent openNumberIntent = new Intent(this , NumbersActivity.class);
-            startActivity(openNumberIntent);
-        }else if(view.getId() == R.id.openFamilyList){
-            Intent openFamilyIntent = new Intent(this , FamilyActivity.class);
-            startActivity(openFamilyIntent);
-        }else if(view.getId() == R.id.openColorsList){
-            Intent openColorsIntent = new Intent(this , ColorsActivity.class);
-            startActivity(openColorsIntent);
-        }else if(view.getId() == R.id.openPhrasesList){
-            Intent openPhrasesIntent = new Intent(this , PhrasesActivity.class);
-            startActivity(openPhrasesIntent);
+    public String getPageTitle(Context mContext , int position) {
+        if (position == 0) {
+            return mContext.getString(R.string.category_colors);
+        } else if (position == 1) {
+            return mContext.getString(R.string.category_family);
+        } else if (position == 2) {
+            return mContext.getString(R.string.category_numbers);
+        } else {
+            return mContext.getString(R.string.category_phrases);
         }
     }
-
-
 }

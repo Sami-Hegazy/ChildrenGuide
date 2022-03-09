@@ -3,75 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#15202B"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="serif-monospace"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="@string/teach_your_child"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:id="@+id/tabs"
+        app:tabTextColor="@color/white"
+        android:background="#B05E27">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/openNumbersList"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category_colors"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category_numbers" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category_family" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category_phrases" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <TextView
-            android:id="@+id/numbers"
-            style="@style/CategoryStyle"
-            android:background="@color/category_numbers"
-            android:text="@string/category_numbers"
-            android:textColor="#455A64" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/openFamilyList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
-
-        <TextView
-            android:id="@+id/family"
-            style="@style/CategoryStyle"
-            android:background="@color/category_family"
-            android:text="@string/category_family"
-            android:textColor="#263238" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/openColorsList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
-
-        <TextView
-            android:id="@+id/colors"
-            style="@style/CategoryStyle"
-            android:background="@color/category_colors"
-            android:text="@string/category_colors"
-            android:textColor="#90A4AE" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/openPhrasesList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
-
-        <TextView
-            android:id="@+id/phrases"
-            style="@style/CategoryStyle"
-            android:background="@color/category_phrases"
-            android:text="@string/category_phrases"
-            android:textColor="#263238" />
-    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

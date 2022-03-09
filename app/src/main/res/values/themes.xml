@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ChildrenGuide" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#15202B</item>
+        <item name="colorPrimary">#7E370C</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -26,4 +26,21 @@
         <item name="fontFamily">sans-serif</item>
     </style>
 
+<!--    &lt;!&ndash; App bar style &ndash;&gt;-->
+<!--    <style name="MiwokAppBarStyle" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">-->
+<!--        &lt;!&ndash; Remove the shadow below the app bar &ndash;&gt;-->
+<!--        <item name="elevation">0dp</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Style for a tab that displays a category name &ndash;&gt;-->
+<!--    <style name="CategoryTab" parent="Widget.Design.TabLayout">-->
+<!--        <item name="tabIndicatorColor">@android:color/white</item>-->
+<!--        <item name="tabSelectedTextColor">@android:color/white</item>-->
+<!--        <item name="tabTextAppearance">@style/CategoryTabTextAppearance</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Text appearance style for a category tab &ndash;&gt;-->
+<!--    <style name="CategoryTabTextAppearance" parent="TextAppearance.Design.Tab">-->
+<!--        <item name="android:textColor">#A8A19E</item>-->
+<!--    </style>-->
 </resources>
